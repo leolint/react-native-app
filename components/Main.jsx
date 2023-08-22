@@ -1,14 +1,15 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Text, SafeAreaView, StyleSheet, View, Image } from 'react-native';
 import Header from './Header';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import ToDoList from './ToDoList';
 
 function Main({ route }) {
 
   const { userName } = route.params;
 
   return (
-    <SafeAreaView style={styles.wrapper}>
+    <SafeAreaView style={styles.container}>
       <Header userName={userName} />
       <View style={styles.imageWrapper}>
         <Image source={require('../assets/cardBg.png')} />
@@ -17,7 +18,7 @@ function Main({ route }) {
           style={styles.radialProgress}
             size={120}
             width={15}
-            fill={80}
+            fill={70}
             tintColor="#fff"
             onAnimationComplete={() => console.log('onAnimationComplete')}
             backgroundColor="#FFB478" />
@@ -25,12 +26,13 @@ function Main({ route }) {
            <Text style={styles.cardText}>3 of 5 habits {'\n'}completed today!</Text>
         </View>
       </View>
+      <ToDoList />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
+  container: {
     flex: 1,
     backgroundColor: 'white',
     paddingLeft: 28,
@@ -50,12 +52,13 @@ const styles = StyleSheet.create({
     top: 33
   } ,
   radialProgress : {
-    position:'relative'
+    position:'relative' ,
+    transform: [{rotateZ: '270deg'}],
   } , 
   persents : {
     position: 'absolute' , 
     top: 42 , 
-    left: '15%',
+    left: '14%',
     color:'white',
     fontSize: 21
   } , 
