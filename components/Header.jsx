@@ -9,7 +9,7 @@ function Header({ userName }) {
 
 
     return (
-        <SafeAreaView style={styles.wrapper}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.calendar}>Sun, 1 March 2022</Text>
             <Text style={styles.text}>Hello, <Text style={styles.userName}>{userName}</Text></Text>
         </SafeAreaView>
@@ -17,7 +17,7 @@ function Header({ userName }) {
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
+    container: {
     },
     calendar:{
         color: '#2F2F2F',
